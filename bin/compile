@@ -114,8 +114,8 @@ fi
 # https://github.com/alexcrichton/cargo/commit/014765f788ca1c2476936835ca32cc2746f99b42
 # which describe how this needs to be named.
 export CARGO_TARGET_DIR="$CACHE_DIR/target"
-echo "-----> Installing movine"
-cargo install movine || echo "already installed"
-cp $(which movine) target/release/
+echo "-----> Installing sqlx-cli for postgresql"
+cargo install sqlx-cli --no-default-features --features postgres || echo "already installed"
+cp $(which sqlx) target/release/
 
-movine up
+sqlx database setup
